@@ -35,7 +35,13 @@ var arraySum = (array, acc) => {
 };
 
 // 4. Check if a number is even.
-var isEven = function(n) {
+var isEven = n => {
+	//base cases, lines 40, 41
+	if (n === 0 || n === 2) return true;
+	if (n === 1 || n === -1) return false; 
+	//recurse calls until the base case is hit
+	if (n < -1) return isEven(n + 2);
+	if (n > 2) return isEven(n - 2);
 };
 
 // 5. Sum all integers below a given integer.

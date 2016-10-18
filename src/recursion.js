@@ -61,6 +61,7 @@ var range = function(x, y) {
 
 	if (y - x === 0 || y - x === 1) return [];
 
+
 	//seperating the problem into smaller problems
 	if (y < x) {
 		do {
@@ -107,7 +108,18 @@ var exponent = (base, exp) => {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
-};
+	var isTrue = false;
+	if (n <= 0 ) return false;
+
+	for (let i = 1; (i * i) <= n; i++) {
+		if (i * i === n) return isTrue = true;
+		let temp = n / i;
+		let temp2 = (temp + i) / 2;
+		// console.log(temp2);
+		if (n / temp2 === 2) return isTrue = true;
+	}
+	return isTrue;
+}
 
 // 9. Write a function that accepts a string a reverses it.
 var reverse = function(string) {

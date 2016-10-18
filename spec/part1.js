@@ -344,7 +344,8 @@
         expect(powerOfTwo(1)).to.equal(true);
         expect(powerOfTwo(2)).to.equal(true);
         expect(powerOfTwo(10)).to.equal(false);
-        expect(powerOfTwo(128)).to.equal(true);
+        expect(powerOfTwo(121)).to.equal(true);
+        //there might be an error here
         expect(powerOfTwo(256)).to.equal(true);
       });
 

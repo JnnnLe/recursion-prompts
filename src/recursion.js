@@ -25,8 +25,7 @@ var sum = (array, nextElement, acc) => {
 
 // 3. Sum all numbers in an array containing nested arrays.
 // Example: arraySum([1,[2,3],[[4]],5]); // 15
-var arraySum = (array, acc) => {
-	acc = acc || 0;
+var arraySum = (array, acc = 0) => {
 	
 	array.map(n =>  {
 		Array.isArray(n) ? acc = acc + arraySum(n) : acc = acc + n;
@@ -119,8 +118,11 @@ var powerOfTwo = (n, i) => {
 
 
 // 9. Write a function that accepts a string a reverses it.
-var reverse = function(string) {
+var reverse = function(string, acc = []) {
   var newStr = string.split('');
+
+  if (newStr.length <= 1)
+  	return acc.push(newStr[i]).join('');
 
 };
 

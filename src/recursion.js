@@ -55,32 +55,21 @@ var sumBelow = n => {
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
-var range = function(x, y) {
-	var acc = [];
+var range = (x, y, acc = []) => {
 	var i = x;
 
-	if (y - x === 0 || y - x === 1) return [];
-
+	if (y - x === 0 || y - x === 1 || x - y === 1) return acc;
 
 	//seperating the problem into smaller problems
 	if (y < x) {
-		do {
-			i--;
-			acc.push(i);
-		} while (i > (y + 1));
-
-		return acc;
-		//if you don't return here as well as line 82,
-		//you will run into an error.
+    i--;
+    acc.push(i);
+  } else {
+    i++;
+		acc.push(i);
 	};
 
-	//while y > x (numeric case)
-	do {
-		i++;
-		acc.push(i)
-	} while (i < (y - 1));
-	
-	return acc;
+  return range(i, y, acc);
 };
 
 // 7. Compute the exponent of a number.
@@ -94,10 +83,9 @@ var exponent = (base, exp) => {
 	if (exp === 1) return base;
 
 	//if the exponent is a negative integer
-	if (exp < 0) {
-		return 1 / (exponent(base, exp * -1));
+	if (exp < 0)	return 1 / (exponent(base, exp * -1));
 		//4^(-2) =>  1/(4^2)  =  1/(4 * 4)  =  1/16  === 0.0625
-	}
+
 	//else,
 	return base * exponent(base, exp - 1);
 
@@ -132,6 +120,8 @@ var powerOfTwo = (n, i) => {
 
 // 9. Write a function that accepts a string a reverses it.
 var reverse = function(string) {
+  var newStr = string.split('');
+
 };
 
 // 10. Write a function that determines if a string is a palindrome.

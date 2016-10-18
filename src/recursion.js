@@ -107,19 +107,28 @@ var exponent = (base, exp) => {
 // powerOfTwo(1); // true
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
-var powerOfTwo = function(n) {
+var powerOfTwo = (n, i) => {
+	i = i || 1;
 	var isTrue = false;
-	if (n <= 0 ) return false;
 
-	for (let i = 1; (i * i) <= n; i++) {
-		if (i * i === n) return isTrue = true;
-		let temp = n / i;
-		let temp2 = (temp + i) / 2;
-		// console.log(temp2);
-		if (n / temp2 === 2) return isTrue = true;
-	}
+	if (n <= 0)
+		return false;
+
+	//don't forget the base case of n === 2, that's the easiest one to over look
+	//for fun, squareRoot:
+	  //while (i * i) <= n
+	    //let temp = (n / i)
+	    //let howToFindTheSquareRootValue = (temp + i) / 2 
+	if (n === 2 || i * i === n || n / i === i)
+		return isTrue = true; 
+
+	while ((i * i) <= n) {
+		return powerOfTwo(n, i + 1);
+  };
+
 	return isTrue;
-}
+};
+
 
 // 9. Write a function that accepts a string a reverses it.
 var reverse = function(string) {

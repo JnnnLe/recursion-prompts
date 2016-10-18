@@ -139,8 +139,8 @@ var reverse = (string, i = 0)  => {
 var palindrome = function(str, i = 0) {
 	if (str.includes(' ')) {
 	  console.log('spaces ', str = str.toLowerCase().split(' '));
-	  //proble: when there are spaces, the split fn return is not expected - might have to use RegExp - to be continued....
-	} else {
+	  //proble: when there are spaces, the split fn return is not expected - might have to use RegExp - to be continued.... 
+	} else { 
 		console.log('no spaces ', str = str.toLowerCase().split(''));
 	}
 

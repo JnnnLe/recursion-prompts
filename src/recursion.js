@@ -65,14 +65,13 @@ var range = function(x, y) {
 	if (y < x) {
 		do {
 			i--;
-			console.log('What am [i] pushing when x > y ', i);
 			acc.push(i);
 		} while (i > (y + 1));
 
 		return acc;
 		//if you don't return here as well as line 82,
 		//you will run into an error.
-	}
+	};
 
 	//while y > x (numeric case)
 	do {
@@ -88,7 +87,19 @@ var range = function(x, y) {
 // 8^2 = 8 x 8 = 64.  Here, 8 is the base and 2 is the exponent.
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
-var exponent = function(base, exp) {
+var exponent = (base, exp) => {
+
+	if (base === 1 || exp === 0) return 1;
+	if (exp === 1) return base;
+
+	//if the exponent is a negative integer
+	if (exp < 0) {
+		return 1 / (exponent(base, exp * -1));
+		//4^(-2) =>  1/(4^2)  =  1/(4 * 4)  =  1/16  === 0.0625
+	}
+	//else,
+	return base * exponent(base, exp - 1);
+
 };
 
 // 8. Determine if a number is a power of two.

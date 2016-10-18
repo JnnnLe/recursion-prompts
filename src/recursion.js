@@ -56,6 +56,31 @@ var sumBelow = n => {
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y) {
+	var acc = [];
+	var i = x;
+
+	if (y - x === 0 || y - x === 1) return [];
+
+	//seperating the problem into smaller problems
+	if (y < x) {
+		do {
+			i--;
+			console.log('What am [i] pushing when x > y ', i);
+			acc.push(i);
+		} while (i > (y + 1));
+
+		return acc;
+		//if you don't return here as well as line 82,
+		//you will run into an error.
+	}
+
+	//while y > x (numeric case)
+	do {
+		i++;
+		acc.push(i)
+	} while (i < (y - 1));
+	
+	return acc;
 };
 
 // 7. Compute the exponent of a number.

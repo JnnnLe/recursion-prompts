@@ -162,16 +162,17 @@ var multiply = function(x, y) {
 	if (y === 1) return x;
 
 	//if both integers are the same polar sign
-	if (x < 1 && y < 1) return x = x + multiply(x, (y + 1));
+	
+	//broken -- fixed
+	if (x < 1 && y < 1) return x = -(x) + multiply(x, (y + 1));
 
-	//broken
 	if (x > 1 && y > 1) return x = x + multiply(x, (y - 1));
 
 
 	//if one integer is negative
 	if (x < 0 || y < 0) {
 
-		//broken --
+		//broken -- fixed
 		if (y < 1) return y = (y + multiply((x - 1), y));
 
 		if (x < 1) return x = (x + multiply(x, (y - 1)));

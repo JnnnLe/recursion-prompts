@@ -138,10 +138,10 @@ var reverse = (string, i = 0)  => {
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(str, i = 0) {
 	if (str.includes(' ')) {
-	  console.log('spaces ', str = str.toLowerCase().split(' '));
-	  //proble: when there are spaces, the split fn return is not expected - might have to use RegExp - to be continued.... 
+	  str = str.toLowerCase().split(' ');
+	  //problem: when there are spaces, the split fn return is not expected - might have to use RegExp - to be continued.... 
 	} else { 
-		console.log('no spaces ', str = str.toLowerCase().split(''));
+		str = str.toLowerCase().split('');
 	}
 
 };
@@ -157,6 +157,25 @@ var modulo = function(x, y) {
 // 12. Write a function that multiplies two numbers without using the * operator  or
 // JavaScript's Math object.
 var multiply = function(x, y) {
+	if (x === 0 || y === 0) return 0;
+	if (x === 1) return y;
+	if (y === 1) return x;
+
+	//if both integers are the same polar sign
+	if (x < 1 && y < 1) return x = x + multiply(x, (y + 1));
+
+	//broken
+	if (x > 1 && y > 1) return x = x + multiply(x, (y - 1));
+
+
+	//if one integer is negative
+	if (x < 0 || y < 0) {
+
+		//broken --
+		if (y < 1) return y = (y + multiply((x - 1), y));
+
+		if (x < 1) return x = (x + multiply(x, (y - 1)));
+	}
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or

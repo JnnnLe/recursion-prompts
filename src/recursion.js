@@ -124,6 +124,9 @@ var reverse = (string, i = 0)  => {
   }
 
 	var newStr = string.split('');
+	//moved newStr to save memory
+
+	//computer's algorithm for swapping - get use to it
   var temp = newStr[i];
   newStr[i] = newStr[newStr.length - (i + 1)];
   newStr[newStr.length - (i + 1)] = temp;
@@ -133,7 +136,14 @@ var reverse = (string, i = 0)  => {
 
 
 // 10. Write a function that determines if a string is a palindrome.
-var palindrome = function(string) {
+var palindrome = function(str, i = 0) {
+	if (str.includes(' ')) {
+	  console.log('spaces ', str = str.toLowerCase().split(' '));
+	  //proble: when there are spaces, the split fn return is not expected - might have to use RegExp - to be continued....
+	} else {
+		console.log('no spaces ', str = str.toLowerCase().split(''));
+	}
+
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
